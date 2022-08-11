@@ -1,11 +1,13 @@
 # Safe and Robust Experience Sharing for Deterministic Policy Gradient Algorithms
-PyTorch implementation of the _Deterministic Actor-Critic with Shared Experience_ (DASE) algorithm. 
+PyTorch implementation of the _Deterministic Actor-Critic with Shared Experience_ algorithm (DASE). If you use our code or data, please cite the [paper](https://arxiv.org/abs/2207.13453). It was accepted at [ICML 2022 Workshop on Responsible Decision Making in Dynamic Environments](https://responsibledecisionmaking.github.io/) (see [poster](https://responsibledecisionmaking.github.io/assets/poster/19.pdf) and [presentation](https://drive.google.com/file/d/1vjjMh_z51xdOjsQCcGfU5ojAcrrf3dOS/view)).  
+
+
 Note that the implementation of the [DDPG](https://arxiv.org/abs/1509.02971) and [TD3](https://arxiv.org/abs/1802.09477) algorithms are heavily based on the [author's Pytorch implementation of the TD3 algorithm](https://github.com/sfujim/TD3). 
 
 The algorithm is tested on [MuJoCo](https://gym.openai.com/envs/#mujoco) and [Box2D](https://gym.openai.com/envs/#box2d) continuous control benchmarks.
 
 ### Results
-Figures for evaluation results and ablation studies are found under *./Figures/Evaluation* and *./Figures/Ablation Studies*, respectively. Each learning curve is formatted as NumPy arrays of 999 evaluations (1001,). Each evaluation corresponds to the average reward from running the policy for 10 episodes without exploration and updates. The randomly initialized policy network produces the first evaluation. Evaluations are performed every 1000 time steps, over 1 million time steps for **10 random seeds**. These evaluation results are found under *./Learning Curves*.
+Figures for evaluation results and ablation studies are found under *./Figures/Evaluation* and *./Figures/Ablation Studies*, respectively. Each learning curve is formatted as NumPy arrays of 1001 evaluations (1001,). Each evaluation corresponds to the average reward from running the policy for 10 episodes without exploration and updates. The randomly initialized policy network produces the first evaluation. Evaluations are performed every 1000 time steps, over 1 million time steps for **10 random seeds**. These evaluation results are found under *./Learning Curves*.
 
 ### Ablation Studies
 Ablation studies are performed when DASE is applied to [the TD3 algorithm](https://arxiv.org/abs/1802.09477#) in Ant-v2, HalfCheetah-v2, LunarLanderContinuous-v2 and Swimmer-v2 environments under the both settings of the experience replay buffer. 
@@ -119,3 +121,17 @@ optional arguments:
   --lr G                Learning rate (default: 0.0003)
   --hidden_size N       Hidden unit size in neural networks (default: 256)
   ```
+
+### Bibtex
+```
+@misc{https://doi.org/10.48550/arxiv.2207.13453,
+  doi = {10.48550/ARXIV.2207.13453},
+  url = {https://arxiv.org/abs/2207.13453},
+  author = {Saglam, Baturay and Cicek, Dogan C. and Mutlu, Furkan B. and Kozat, Suleyman S.},
+  keywords = {Machine Learning (cs.LG), Artificial Intelligence (cs.AI), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title = {Safe and Robust Experience Sharing for Deterministic Policy Gradient Algorithms},
+  publisher = {arXiv},
+  year = {2022},
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
+```
